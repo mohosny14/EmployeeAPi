@@ -34,6 +34,7 @@ builder.Services.AddAuthentication(options =>
     {
         o.RequireHttpsMetadata = false;
         o.SaveToken = false;
+        // important
         o.TokenValidationParameters = new TokenValidationParameters
         {
             ValidateIssuerSigningKey = true,
@@ -64,7 +65,7 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
-app.UseCors(g => g.AllowAnyHeader().AllowAnyMethod().AllowAnyOrigin());
+//app.UseCors(g => g.AllowAnyHeader().AllowAnyMethod().AllowAnyOrigin());
 app.UseAuthentication();
 app.UseAuthorization();
 
